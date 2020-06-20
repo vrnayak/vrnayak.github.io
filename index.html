@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="sudoku.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <title>Sudoku</title>
+    </head>
+    <body onload="indexStartup()">
+        <header>
+            <div class="logo">
+                <a class="logoLink" href="index.html">
+                <p class="title">S&nbsp;U&nbsp;D</p>
+                <p class="title">O&nbsp;K&nbsp;U</p>
+                <p class="title">1&nbsp;&nbsp;2&nbsp;3</p>
+                </a>
+            </div>
+
+            <nav>
+                <a href="sudoku.html">Play</a>
+                <a href="solver.html">Solve</a>
+                <a href="learn.html">Learn</a>
+            </nav>
+
+            <section id="intro">
+                <h1>Sudoku Puzzles</h1>
+
+                <table id="left">
+                    <tr><td>7</td><td>8</td><td>9</td></tr>
+                    <tr><td>6</td><td>1</td><td>2</td></tr>
+                    <tr><td>5</td><td>4</td><td>3</td></tr>
+                </table>
+
+                <table id="center">
+                    <tr><td>1</td><td>2</td><td>3</td></tr>
+                    <tr><td>8</td><td>9</td><td>4</td></tr>
+                    <tr><td>7</td><td>6</td><td>5</td></tr>
+                </table>
+
+                <table id="right">
+                    <tr><td>3</td><td>6</td><td>1</td></tr>
+                    <tr><td>8</td><td>9</td><td>4</td></tr>
+                    <tr><td>5</td><td>2</td><td>7</td></tr>
+                </table>
+                <br>
+                <p>Welcome to the world of Sudoku! Explore these quirky number puzzles that have
+                    captivated kids and adults alike for centuries!</p>
+                <br>
+                <a class="btn" href="#howToPlay">How To Play</a>
+                <a class="btn" href="sudoku.html">Get Started</a>
+            </section>
+        </header>
+        <br>
+        <br>
+        <section id="howToPlay">
+            <h2>How To Play</h2>
+            <br>
+            <section class="steps">
+                <h3>OVERVIEW</h3>
+                <br>
+                <p>Sudoku puzzles are 9x9 grids that consist of only the numbers 1-9. We call each 1x1 box in this
+                    grid a cell. Every grid has exactly 81 cells. We tend to organize these cells into nine rows,
+                    nine columns, and nine 3x3 boxes as shown below (hover over cells to see rows/columns/boxes).
+                </p>
+            </section>
+
+            <section class="steps">
+                <h3>OBJECTIVE</h3>
+                <br>
+                <p>The objective is to fill in the grid such that every row, column, and box contains
+                    the numbers 1 - 9 exactly once. For advanced solvers, time is another factor &mdash;
+                    solving Sudokus as fast as possible has not only interested puzzle-lovers but also become
+                    a worldwide competition!
+                </p>
+            </section>
+
+            <section class="steps">
+                <h3>GETTING STARTED</h3>
+                <br>
+                <p>Sudokus are usually given with a number of cells filled in. These "clues" help solvers deduce the
+                    remaining numbers that go in the cells. Sudokus are logic puzzles, which means that every Sudoku
+                    can be solved without a single guess &mdash; all that is needed is time & wit.
+                </p>
+            </section>
+        </section>
+        <section class="sudoku">
+            <table id="demoGrid"></table>
+        </section>
+        <footer>
+            <div class="logo">
+                <a class="logoLink" href="index.html">
+                    <p class="title">S&nbsp;U&nbsp;D</p>
+                    <p class="title">O&nbsp;K&nbsp;U</p>
+                    <p class="title">1&nbsp;&nbsp;2&nbsp;3</p>
+                </a>
+            </div>
+            <small> &copy; Sudoku123  |  May 19<sup>th</sup>, 2020</small>
+
+        </footer>
+    </body>
+</html>

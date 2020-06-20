@@ -1,0 +1,291 @@
+/* CSS RESET */
+body {
+    line-height: 1;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    vertical-align: baseline;
+    font: inherit;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+/* END OF CSS RESET */
+
+@font-face {
+    font-family: 'dosisextralight';
+    src: url('dosis-variablefont_wght-webfont.woff2') format('woff2'),
+    url('dosis-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}   /* Dosis Font Face*/
+
+body {
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'dosisextralight', sans-serif;
+}
+
+header, footer {
+    display: block;
+    vertical-align: middle;
+    width: 100%;
+    padding: 1% 0;
+    color: #ffffff;
+    background-color: #1E2E40;
+}
+
+.logo {
+
+    display: inline-block;
+    margin-left: 4%;
+    width: 5%;
+    height: 40px;
+    color: #bababa;
+    font-size: 2em;
+    text-align: center;
+}
+
+.logoLink {
+    color: #bababa;
+    text-decoration: none;
+}
+
+.logoLink:hover {
+    color: white;
+}
+
+nav {
+    display: inline-block;
+    float: right;
+
+    width: 85%;
+    height: 40px;
+    padding: 1.5% 5% 0 0;
+
+    color: #bababa;
+    font-size: 1.5em;
+    text-align: right;
+}
+
+nav a {
+    display: inline-block;
+    margin: 0 1%;
+    padding-bottom: 0.25em;
+    color: #bababa;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover {
+
+    border-bottom: 0.17em #bababa dotted;
+}
+
+#intro h1 {
+    margin: 5% 0;
+    font-size: 6em;
+    text-align: center;
+}
+
+#intro {
+    text-align: center;
+    line-height: 1.6em;
+}
+
+#intro p {
+    display: inline-block;
+
+    width: 60%;
+    margin: 3% auto;
+
+    color: #bababa;
+    font-size: 2.5em;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+#intro table {
+    display: inline-block;
+    margin: 3% 5%;
+}
+
+#intro td {
+    width: 1.5em;
+    border: 0.05em #8d8d8d solid;
+
+    color: #8d8d8d;
+    align-content: center;
+    font-size: 2em;
+    padding: 0.5em 0.5em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#left {
+    transform: rotate(-15deg);
+}
+
+#right {
+    transform: rotate(15deg);
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 1em;
+    margin: 1% 5% 5% 5%;
+    border: 0.05em white solid;
+    border-radius: 15px;
+
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.btn:hover {
+    color: #1E2E40;
+    background-color: white;
+}
+
+#howToPlay {
+    display: block;
+    width: 86%;
+    margin: 1% 7% 4% 7%;
+}
+
+h2 {
+    display: inline-block;
+    padding-bottom: 0.2em;
+    margin-bottom: 3%;
+    color: #1E2E40;
+    font-size: 3.5em;
+    border-bottom: #1E2E40 0.1em dotted;
+}
+
+.steps {
+    display: inline-block;
+    float: left;
+
+    width: 27%;
+    height: 30%;
+    padding: 1em 1em;
+    margin: 0 3%;
+    border-radius: 15px;
+    border: 0.2em #8d8d8d dotted;
+
+    color: #4f4f4f;
+    font-size: 1.5em;
+    text-align: justify;
+    line-height: 1.5em;
+}
+
+.steps h3 {
+    color: #1E2E40;
+    font-size: 1.55em;
+    font-weight: bold;
+}
+
+.sudoku {
+    display: block;
+    clear: both;
+    width: 100%;
+    text-align: center;
+}
+
+.sudoku table {
+    display: inline-block;
+    margin: 2em auto;
+    border: 0.3em #8d8d8d solid;
+    border-collapse: collapse;
+    font-size: 1em;
+}
+
+.sudoku td {
+    width: 2.8em;
+    height: 2.8em;
+    border: 0.05em #8d8d8d solid;
+
+    color: #7a7a7a;
+    align-content: center;
+    font-size: 1.5em;
+    padding: 0.6em;
+    text-align: center;
+    vertical-align: middle;
+
+    box-sizing: border-box;
+}
+
+.sudoku .rowDemoColor {
+    background-color: rgba(255, 83, 83, 0.43);
+}
+
+.sudoku .boxDemoColor {
+    background-color: rgba(0, 152, 141, 0.43);
+}
+
+.sudoku .colDemoColor {
+    background-color: rgba(0, 47, 188, 0.43);
+}
+
+.sudoku .rowGridColor {
+    background-color: rgba(101, 171, 171, 0.39);
+}
+
+.sudoku .colGridColor {
+    background-color: rgba(101, 171, 171, 0.39);
+}
+
+.sudoku input {
+    width: 100%;
+    height: 100%;
+    border: none;
+
+    color: #7a7a7a;
+    text-align: center;
+    outline: transparent;
+    caret-color: transparent;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+footer {
+    margin-top: 3%;
+}
+
+small {
+    display: inline-block;
+    position: relative;
+    left: 35%;
+    bottom: 3%;
+
+    font-size: 1.2em;
+}
