@@ -335,6 +335,11 @@ h2 {
     background-color: rgba(0, 152, 141, 0.43);
 }
 
+#grid .userFill {
+    color: #1E2E40;
+    font-weight: bolder;
+}
+
 footer {
     margin-top: 3%;
 }
