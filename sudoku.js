@@ -8,12 +8,45 @@ function indexStartup() {
     colorDemoGrid(demoColors);
 }
 
+document.body.onkeydown = function (e) {
+
+    let possible = document.getElementsByClassName("selectedCell");
+    let selected = possible;
+    if (possible.length > 0)
+        selected = possible[0].getElementsByTagName("input")[0];
+
+    if (e.key === 'Backspace')
+        selected.innerHTML = "<input type='text' maxlength='1' style='font-weight: bolder; color: #1E2E40'/>";
+}
+
 function sudokuStartup() {
 
+    window.startTime = new Date();
     let gridColors = { "row": "rowGridColor", "col": "colGridColor"};
+
     createGrid("grid");
     colorGrid(gridColors);
     createInputFields();
+    createButtons();
+    loadTimer();
+}
+
+function loadTimer() {
+
+    setTimeout(function () {
+        let time = new Date();
+        let elapsed = time - startTime;
+        let timer = document.getElementById("timer");
+
+        let minutes = Math.floor(elapsed / 60000);
+        let seconds = Math.floor((elapsed - (60000 * minutes)) / 1000);
+
+        minutes = (minutes < 10) ? "0" + minutes.toString() : minutes.toString();
+        seconds = (seconds < 10) ? "0" + seconds.toString() : seconds.toString();
+
+        timer.innerText = minutes + ':' + seconds;
+        loadTimer();
+    }, 1000);
 }
 
 function createGrid(gridID) {
@@ -138,14 +171,42 @@ function createInputFields() {
         if (cells[i].innerText.length === 0) {
             cells[i].style.padding = "0";
 
-            cells[i].innerHTML = "<input type='text' maxlength='1' />";
+            cells[i].innerHTML = "<input type='text' maxlength='1' style='font-weight: bolder; color: #1E2E40'/>";
             cells[i].addEventListener("keydown", function (e) {
                 let digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
                 if (digits.includes(e.key) === false)
-                    cells[i].innerHTML = "<input type='text' maxlength='1' />";
-            })
+                    cells[i].innerHTML = "<input type='text' maxlength='1' style='font-weight: bolder; color: #1E2E40'/>";
+            });
+            cells[i].addEventListener("click", function () {
+                for (let j = 0; j < cells.length; j++)
+                    cells[j].classList.remove("selectedCell");
+                cells[i].classList.add("selectedCell");
+            });
+
         }
     }
+}
+
+function createButtons() {
+
+    let buttons = document.getElementById("sudokuInfo");
+    for (let row = 0; row < 3; row++) {
+        let newRow = buttons.insertRow(row);
+        for (let col = 0; col < 3; col++) {
+            let newCell = newRow.insertCell(col);
+            newCell.innerHTML = 3 * row + col + 1;
+            newCell.addEventListener("click", function () {
+                fillCell(3 * row + col + 1);
+            })
+
+        }
+    }
+}
+
+function fillCell(num) {
+
+    let selected = document.getElementsByClassName("selectedCell")[0].getElementsByTagName("input")[0];
+    selected.setAttribute("value", num.toString());
 }
 
 // Helper Functions
