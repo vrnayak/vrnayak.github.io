@@ -1,22 +1,11 @@
 // sudoku.js
-// This file contains the JavaScript for the home page
+// This file contains the JavaScript for the Sudoku site
 
 function indexStartup() {
 
     let demoColors = { "row": "rowDemoColor", "col": "colDemoColor", "box": "boxDemoColor" };
     createGrid("demoGrid");
     colorDemoGrid(demoColors);
-}
-
-document.body.onkeydown = function (e) {
-
-    let possible = document.getElementsByClassName("selectedCell");
-    let selected = possible;
-    if (possible.length > 0)
-        selected = possible[0].getElementsByTagName("input")[0];
-
-    if (e.key === 'Backspace')
-        selected.innerHTML = "<input type='text' maxlength='1' style='font-weight: bolder; color: #1E2E40'/>";
 }
 
 function sudokuStartup() {
@@ -27,33 +16,21 @@ function sudokuStartup() {
     createGrid("grid");
     colorGrid(gridColors);
     createInputFields();
+    setEventListeners();
     createButtons();
     loadTimer();
 }
 
-function loadTimer() {
 
-    setTimeout(function () {
-        let time = new Date();
-        let elapsed = time - startTime;
-        let timer = document.getElementById("timer");
+// **** INDEX.HTML ****
 
-        let minutes = Math.floor(elapsed / 60000);
-        let seconds = Math.floor((elapsed - (60000 * minutes)) / 1000);
 
-        minutes = (minutes < 10) ? "0" + minutes.toString() : minutes.toString();
-        seconds = (seconds < 10) ? "0" + seconds.toString() : seconds.toString();
-
-        timer.innerText = minutes + ':' + seconds;
-        loadTimer();
-    }, 1000);
-}
 
 function createGrid(gridID) {
 
     let demoGrid = [1, 0, 0, 9, 8, 5, 6, 2, 4, 4, 0, 0, 0, 0, 2, 3, 8, 7, 0, 0, 8, 0, 0, 0, 1, 0, 0,
-                    0, 7, 0, 0, 5, 6, 4, 0, 2, 6, 4, 2, 0, 1, 0, 0, 0, 0, 5, 0, 3, 0, 2, 7, 8, 1, 0,
-                    0, 0, 4, 2, 7, 8, 9, 0, 0, 7, 0, 0, 0, 0, 3, 2, 4, 1, 0, 2, 0, 6, 0, 1, 0, 3, 0];
+        0, 7, 0, 0, 5, 6, 4, 0, 2, 6, 4, 2, 0, 1, 0, 0, 0, 0, 5, 0, 3, 0, 2, 7, 8, 1, 0,
+        0, 0, 4, 2, 7, 8, 9, 0, 0, 7, 0, 0, 0, 0, 3, 2, 4, 1, 0, 2, 0, 6, 0, 1, 0, 3, 0];
 
     let sudokuTable = document.getElementById(gridID);
     for (let row = 0; row < 9; row++) {
@@ -131,6 +108,59 @@ function colorDemoGrid(colors) {
     }
 }
 
+// Helper Functions
+function getBox(cellNum) {
+
+    let rowShift = Math.floor(cellNum / 27);
+    let colShift = Math.floor((cellNum % 9) / 3)
+    return 3 * rowShift + colShift;
+}
+
+function getID(cellNum) { return "cell" + cellNum.toString(); }
+
+
+// **** SUDOKU.HTML ****
+
+// Global Variables
+let acceptable = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Backspace"];
+
+function setEventListeners() {
+
+    document.body.onkeydown = function (e) {
+
+        let selected = document.getElementsByClassName("selectedCell");
+        if (selected.length !== 0) {
+
+            let inputField = selected[0].getElementsByTagName("input")[0];
+            if (acceptable.includes(e.key)) {
+                if (e.key === "Backspace")
+                    inputField.setAttribute("value", "");
+                else
+                    inputField.setAttribute("value", e.key);
+            } else
+                inputField.setAttribute("value", "");
+        }
+    }
+}
+
+function loadTimer() {
+
+    setTimeout(function () {
+        let time = new Date();
+        let elapsed = time - startTime;
+        let timer = document.getElementById("timer");
+
+        let minutes = Math.floor(elapsed / 60000);
+        let seconds = Math.floor((elapsed - (60000 * minutes)) / 1000);
+
+        minutes = (minutes < 10) ? "0" + minutes.toString() : minutes.toString();
+        seconds = (seconds < 10) ? "0" + seconds.toString() : seconds.toString();
+
+        timer.innerText = minutes + ':' + seconds;
+        loadTimer();
+    }, 1000);
+}
+
 function colorGrid(colors) {
 
     let rows = document.getElementsByTagName("tr");
@@ -171,18 +201,19 @@ function createInputFields() {
         if (cells[i].innerText.length === 0) {
             cells[i].style.padding = "0";
 
-            cells[i].innerHTML = "<input type='text' maxlength='1' style='font-weight: bolder; color: #1E2E40'/>";
-            cells[i].addEventListener("keydown", function (e) {
-                let digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-                if (digits.includes(e.key) === false)
-                    cells[i].innerHTML = "<input type='text' maxlength='1' style='font-weight: bolder; color: #1E2E40'/>";
-            });
+            cells[i].innerHTML = "<input type='text' style='font-weight: bolder; color: #1E2E40'/>";
+            // cells[i].addEventListener("keydown", function (e) {
+            //   let digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Backspace"];
+            //    if (digits.includes(e.key) === false)
+            //        cells[i].innerHTML = "<input type='text' style='font-weight: bolder; color: #1E2E40'/>";
+            //});
             cells[i].addEventListener("click", function () {
-                for (let j = 0; j < cells.length; j++)
-                    cells[j].classList.remove("selectedCell");
+
+                let cellSelected = document.getElementsByClassName("selectedCell");
+                if (cellSelected.length > 0)
+                    cellSelected[0].classList.remove("selectedCell");
                 cells[i].classList.add("selectedCell");
             });
-
         }
     }
 }
@@ -205,16 +236,9 @@ function createButtons() {
 
 function fillCell(num) {
 
-    let selected = document.getElementsByClassName("selectedCell")[0].getElementsByTagName("input")[0];
-    selected.setAttribute("value", num.toString());
+    let selected = document.getElementsByClassName("selectedCell");
+    if (selected.length !== 0) {
+        let inputField = selected[0].getElementsByTagName("input")[0];
+        inputField.setAttribute("value", num.toString());
+    }
 }
-
-// Helper Functions
-function getBox(cellNum) {
-
-    let rowShift = Math.floor(cellNum / 27);
-    let colShift = Math.floor((cellNum % 9) / 3)
-    return 3 * rowShift + colShift;
-}
-
-function getID(cellNum) { return "cell" + cellNum.toString(); }
