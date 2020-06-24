@@ -215,15 +215,22 @@ h2 {
 }
 
 .sudoku {
-    display: block;
+    display: inline-block;
+    margin: 0 auto;
+    padding-left: 20%;
+    padding-top: 2%;
     clear: both;
+    width: 65%;
+
+}
+
+#demoSection {
     width: 100%;
-    text-align: center;
 }
 
 .sudoku table {
     display: inline-block;
-    margin: 2em auto;
+    margin: 0 auto;
     border: 0.3em #8d8d8d solid;
     border-collapse: collapse;
     font-size: 1em;
@@ -275,6 +282,57 @@ h2 {
     caret-color: transparent;
     cursor: pointer;
     background-color: transparent;
+}
+
+.controls {
+    display: inline-block;
+    width: 20%;
+    margin: 0 auto;
+    padding-top: 6%;
+
+    color: #1E2E40;
+    vertical-align: top;
+}
+
+#difficulty {
+
+    margin: 0;
+    padding-bottom: 0.3em;
+    padding-right: 22em;
+    display: inline-block;
+
+    color: #4f4f4f;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+#timer {
+
+    padding-bottom: 0.3em;
+    display: inline-block;
+
+    color: #4f4f4f;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+#sudokuInfo td {
+
+    width: 3.5em;
+    height: 3.5em;
+    border: 0.05em #8d8d8d solid;
+
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+
+    color: #4f4f4f;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+#sudokuInfo td:hover {
+    background-color: rgba(0, 152, 141, 0.43);
 }
 
 footer {
