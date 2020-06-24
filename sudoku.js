@@ -15,16 +15,12 @@ function sudokuStartup() {
 
     createGrid("grid");
     colorGrid(gridColors);
-    createInputFields();
     setEventListeners();
     createButtons();
     loadTimer();
 }
 
-
 // **** INDEX.HTML ****
-
-
 
 function createGrid(gridID) {
 
@@ -46,6 +42,8 @@ function createGrid(gridID) {
                 newCell.style.borderBottomWidth = "0.3em";
             if (col === 2 || col === 5)
                 newCell.style.borderRightWidth = "0.3em";
+            if (demoGrid[cellNum] === 0)
+                newCell.classList.add("userFill");
 
             newCell.id = getID(cellNum);
         }
@@ -118,7 +116,6 @@ function getBox(cellNum) {
 
 function getID(cellNum) { return "cell" + cellNum.toString(); }
 
-
 // **** SUDOKU.HTML ****
 
 // Global Variables
@@ -131,14 +128,13 @@ function setEventListeners() {
         let selected = document.getElementsByClassName("selectedCell");
         if (selected.length !== 0) {
 
-            let inputField = selected[0].getElementsByTagName("input")[0];
-            if (acceptable.includes(e.key)) {
-                if (e.key === "Backspace")
-                    inputField.setAttribute("value", "");
-                else
-                    inputField.setAttribute("value", e.key);
-            } else
-                inputField.setAttribute("value", "");
+            if (selected[0].classList.contains("userFill") === true) {
+                if (acceptable.includes(e.key)) {
+                    if (e.key === "Backspace") selected[0].innerText = "";
+                    else selected[0].innerText = e.key;
+
+                } else selected[0].innerText = "";
+            }
         }
     }
 }
@@ -163,7 +159,7 @@ function loadTimer() {
 
 function colorGrid(colors) {
 
-    let rows = document.getElementsByTagName("tr");
+    let rows = document.getElementById("grid").getElementsByTagName("tr");
     for (let i = 0; i < rows.length; i++) {
         rows[i].onclick = function() {
 
@@ -174,7 +170,7 @@ function colorGrid(colors) {
         };
     }
 
-    let cells = document.getElementsByTagName("td");
+    let cells = document.getElementById("grid").getElementsByTagName("td");
     for (let j = 0; j < cells.length; j++) {
         cells[j].onclick = function() {
 
@@ -190,30 +186,13 @@ function colorGrid(colors) {
                 sameColCell.classList.add(colors["col"]);
                 col += 9;
             }
-        }
-    }
-}
 
-function createInputFields() {
-
-    let cells = document.getElementsByTagName("td");
-    for (let i = 0; i < cells.length; i++) {
-        if (cells[i].innerText.length === 0) {
-            cells[i].style.padding = "0";
-
-            cells[i].innerHTML = "<input type='text' style='font-weight: bolder; color: #1E2E40'/>";
-            // cells[i].addEventListener("keydown", function (e) {
-            //   let digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Backspace"];
-            //    if (digits.includes(e.key) === false)
-            //        cells[i].innerHTML = "<input type='text' style='font-weight: bolder; color: #1E2E40'/>";
-            //});
-            cells[i].addEventListener("click", function () {
-
-                let cellSelected = document.getElementsByClassName("selectedCell");
-                if (cellSelected.length > 0)
-                    cellSelected[0].classList.remove("selectedCell");
-                cells[i].classList.add("selectedCell");
-            });
+            // Add selectedCell class to current cell
+            if (cells[j].getAttribute("color") !== "#7a7a7a") {
+                let selected = document.getElementsByClassName("selectedCell");
+                if (selected.length > 0) selected[0].classList.remove("selectedCell");
+                cells[j].classList.add("selectedCell");
+            }
         }
     }
 }
@@ -238,7 +217,7 @@ function fillCell(num) {
 
     let selected = document.getElementsByClassName("selectedCell");
     if (selected.length !== 0) {
-        let inputField = selected[0].getElementsByTagName("input")[0];
-        inputField.setAttribute("value", num.toString());
+        if (selected[0].classList.contains("userFill") === true)
+            selected[0].innerText = num.toString();
     }
 }
