@@ -45,7 +45,7 @@ function createGrid(gridID) {
             if (demoGrid[cellNum] === 0)
                 $(newCell).addClass("userFill");
 
-            newCell.id = getID(cellNum).slice(1);
+            newCell.id = getID(cellNum).slice(1);   // Removes # at front
         }
     }
 }
