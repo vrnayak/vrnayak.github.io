@@ -335,9 +335,21 @@ h2 {
     background-color: rgba(0, 152, 141, 0.43);
 }
 
+#sudokuInfo #hint {
+    width: 5.25em;
+}
+
+#sudokuInfo #backspace {
+    width: 5.25em;
+}
+
 #grid .userFill {
     color: #1E2E40;
     font-weight: bolder;
+}
+
+#grid .error {
+    background-color: rgba(255, 83, 83, 0.43);
 }
 
 footer {
