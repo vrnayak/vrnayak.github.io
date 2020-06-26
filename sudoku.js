@@ -182,6 +182,14 @@ function createButtons() {
             $(newCell).on("click", function() { fillCell(3 * row + col + 1); });
         }
     }
+
+    let newRow = buttons.insertRow(3);
+    let hint = newRow.insertCell(0);
+    let backspace = newRow.insertCell(1);
+
+    $(hint).setAttribute("id", "hint");
+    $(backspace).setAttribute("id", "backspace");
+
 }
 
 function fillCell(num) {
