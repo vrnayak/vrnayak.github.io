@@ -111,17 +111,31 @@ let acceptable = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Backspace"];
 
 function setEventListeners() {
 
-    $("body").on("keydown", function (e) {
+    let docBody = $("body");
+    docBody.on("keydown", function (e) {
 
         let selected = $(".selectedCell");
         if (selected.length !== 0) {
 
             let cell = selected[0];
             if ($(cell).hasClass("userFill")) {
-                if (acceptable.includes(e.key) && e.key !== "Backspace")
+                if (acceptable.includes(e.key) && e.key !== "Backspace") {
                     cell.innerText = e.key;
-                else
+                } else
                     cell.innerText = "";
+            }
+        }
+    });
+
+    docBody.on("keyup", function(e) {
+
+        let selected = $(".selectedCell");
+        if (selected.length !== 0)  {
+            if ($(selected[0]).hasClass("userFill")) {
+                if (acceptable.includes(e.key) && e.key !== "Backspace")
+                    checkValidity();
+                else if (e.key === "Backspace")
+                    $(".errorCell").removeClass("errorCell");
             }
         }
     });
@@ -173,25 +187,33 @@ function colorGrid(colors) {
 
 function createButtons() {
 
-    let buttons = document.getElementById("sudokuInfo");
+    let buttons = document.getElementById("keypad");
     for (let row = 0; row < 3; row++) {
         let newRow = buttons.insertRow(row);
         for (let col = 0; col < 3; col++) {
             let newCell = newRow.insertCell(col);
             newCell.innerHTML = 3 * row + col + 1;
-            $(newCell).on("click", function() { fillCell(3 * row + col + 1); });
+            $(newCell).on("click", function() {
+                fillCell(3 * row + col + 1);
+                checkValidity();
+            });
         }
     }
 
-    let newRow = buttons.insertRow(3);
-    let hint = newRow.insertCell(0);
-    let backspace = newRow.insertCell(1);
+    let firstRow = document.getElementById("otherKeys").insertRow(0);
+    let hint = firstRow.insertCell(0);
+    let backspace = firstRow.insertCell(1);
 
-    $(hint).setAttribute("id", "hint");
-    $(backspace).setAttribute("id", "backspace");
+    $(hint).html("<i class='fa fa-lightbulb' style='color: #7a7a7a; font-size: 0.9em'</i><br><p id='hint'>Hint</p>");
+    $(backspace).html("<i class='fas fa-backspace' style='color: #7a7a7a; font-size: 0.9em'</i><br><p id='undo'>Undo</p>");
 
+    $(backspace).on("click", function () {
+        $(".selectedCell").text("");
+        $(".errorCell").removeClass("errorCell");
+    });
 }
 
+// Helper Functions
 function fillCell(num) {
 
     let selected = $(".selectedCell");
@@ -200,4 +222,75 @@ function fillCell(num) {
         if ($(cell).hasClass("userFill"))
             cell.innerText = num.toString();
     }
+}
+
+function checkValidity() {
+
+    let cell = $(".selectedCell");
+    let val = cell[0].textContent;
+    if (val === "") return;
+    let selected = parseInt(cell.attr("id").slice(4, 6));
+    $(".errorCell").removeClass("errorCell");
+    let rowError = checkRow(selected, val);
+    let colError = checkCol(selected, val);
+    let boxError = checkBox(selected, val);
+
+    if (rowError !== -1 || colError !== -1 || boxError !== -1) {
+        $(cell).addClass("errorCell");
+    }
+}
+
+function checkRow(cellNum, val) {
+
+    let rowStart = Math.floor(cellNum / 9) * 9;
+    for (let i = 0; i < 9; i++) {
+
+        if (rowStart + i !== cellNum) {
+            let checkedCell = document.getElementById(getID(rowStart + i).slice(1));
+            let fillVal = checkedCell.textContent;
+            if (fillVal === val) {
+                $(checkedCell).addClass("errorCell");
+                return rowStart + i;
+            }
+
+        }
+    }
+    return -1;
+}
+
+function checkCol(cellNum, val) {
+
+    let colStart = cellNum % 9;
+    for (let i = 0; i < 9; i++) {
+        if (colStart + 9 * i !== cellNum) {
+            let checkedCell = document.getElementById(getID(9 * i + colStart).slice(1));
+            let fillVal = checkedCell.textContent;
+            if (fillVal === val) {
+                $(checkedCell).addClass("errorCell");
+                return 9 * i + colStart;
+            }
+        }
+    }
+    return -1;
+}
+
+function checkBox(cellNum, val) {
+
+    let boxStart = getBox(cellNum);
+    boxStart = Math.floor(boxStart / 3) * 27 + 3 * (boxStart % 3);
+    for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+
+            let cell = boxStart + 9 * row + col;
+            if (cell !== cellNum) {
+                let checkedCell = document.getElementById(getID(cell).slice(1));
+                let fillVal = checkedCell.textContent;
+                if (fillVal === val) {
+                    $(checkedCell).addClass("errorCell");
+                    return cell;
+                }
+            }
+        }
+    }
+    return -1;
 }
