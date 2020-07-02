@@ -48,6 +48,10 @@ input[type=number] {
     font-style: normal;
 }   /* Dosis Font Face*/
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     position: relative;
     box-sizing: border-box;
@@ -63,23 +67,25 @@ header, footer {
     background-color: #1E2E40;
 }
 
-.logo {
-
-    display: inline-block;
-    margin-left: 4%;
-    width: 5%;
-    height: 40px;
-    color: #bababa;
-    font-size: 2em;
-    text-align: center;
-}
-
-.logoLink {
-    color: #bababa;
+a {
+    color: inherit;
     text-decoration: none;
 }
 
-.logoLink:hover {
+.logo {
+    display: inline-block;
+
+    width: 5%;
+    height: 40px;
+    margin-left: 4%;
+
+    color: #bababa;
+    font-size: 2em;
+    text-align: center;
+    background-color: rgba(30, 46, 64, 0.5);
+}
+
+.logo a:hover {
     color: white;
 }
 
@@ -100,25 +106,21 @@ nav a {
     display: inline-block;
     margin: 0 1%;
     padding-bottom: 0.25em;
-    color: #bababa;
     font-weight: bold;
-    text-decoration: none;
 }
 
 nav a:hover {
-
     border-bottom: 0.17em #bababa dotted;
+}
+
+#intro {
+    text-align: center;
+    line-height: 1.5em;
 }
 
 #intro h1 {
     margin: 5% 0;
     font-size: 6em;
-    text-align: center;
-}
-
-#intro {
-    text-align: center;
-    line-height: 1.6em;
 }
 
 #intro p {
@@ -130,7 +132,6 @@ nav a:hover {
     color: #bababa;
     font-size: 2.5em;
     line-height: 1.5em;
-    text-align: center;
 }
 
 #intro table {
@@ -146,7 +147,6 @@ nav a:hover {
     align-content: center;
     font-size: 2em;
     padding: 0.5em 0.5em;
-    text-align: center;
     vertical-align: middle;
 }
 
@@ -168,7 +168,6 @@ nav a:hover {
 
     color: white;
     font-size: 2em;
-    text-decoration: none;
 }
 
 .btn:hover {
@@ -178,8 +177,9 @@ nav a:hover {
 
 #howToPlay {
     display: block;
-    width: 86%;
-    margin: 1% 7% 4% 7%;
+    width: 93%;
+    height: 100%;
+    margin: 1% 0 4% 7%;
 }
 
 h2 {
@@ -193,50 +193,51 @@ h2 {
 
 .steps {
     display: inline-block;
-    float: left;
 
-    width: 27%;
-    height: 30%;
-    padding: 1em 1em;
-    margin: 0 3%;
-    border-radius: 15px;
-    border: 0.2em #8d8d8d dotted;
+    width: 45%;
+    padding: 0 1%;
+    margin: 1% 1% 1% 7px;
+    border-left: 0.2em rgba(145, 22, 22, 0.77) solid;
 
     color: #4f4f4f;
-    font-size: 1.5em;
+    font-size: 1.35em;
     text-align: justify;
     line-height: 1.5em;
 }
 
+#objective {
+    border-left-color: rgba(0, 133, 123, 0.79);
+}
+
+#gettingStarted {
+    border-left-color: rgba(21, 45, 122, 0.71);
+}
+
 .steps h3 {
     color: #1E2E40;
+    padding-bottom: 3%;
     font-size: 1.55em;
     font-weight: bold;
 }
 
-.sudoku {
+.grid {
     display: inline-block;
-    margin: 0 auto;
+    float: left;
+
+    margin-right: 20px;
+    padding-top: 3%;
     padding-left: 20%;
-    padding-top: 2%;
     clear: both;
-    width: 65%;
-
 }
 
-#demoSection {
-    width: 100%;
-}
-
-.sudoku table {
+.grid table {
     display: inline-block;
-    margin: 0 auto;
     border: 0.3em #8d8d8d solid;
     border-collapse: collapse;
     font-size: 1em;
 }
 
-.sudoku td {
+.grid td {
     width: 2.8em;
     height: 2.8em;
     border: 0.05em #8d8d8d solid;
@@ -251,48 +252,35 @@ h2 {
     box-sizing: border-box;
 }
 
-.sudoku .rowDemoColor {
+.rowDemoColor {
     background-color: rgba(255, 83, 83, 0.43);
 }
 
-.sudoku .boxDemoColor {
+.boxDemoColor {
     background-color: rgba(0, 152, 141, 0.43);
 }
 
-.sudoku .colDemoColor {
+.colDemoColor {
     background-color: rgba(0, 47, 188, 0.43);
 }
 
-.sudoku .rowGridColor {
+.rowGridColor {
     background-color: rgba(101, 171, 171, 0.39);
 }
 
-.sudoku .colGridColor {
+.colGridColor {
     background-color: rgba(101, 171, 171, 0.39);
 }
 
-.sudoku .errorCell {
+.errorCell {
     background-color: rgba(255, 83, 83, 0.43);
-}
-
-.sudoku input {
-    width: 100%;
-    height: 100%;
-    border: none;
-
-    color: #7a7a7a;
-    text-align: center;
-    outline: transparent;
-    caret-color: transparent;
-    cursor: pointer;
-    background-color: transparent;
 }
 
 .controls {
     display: inline-block;
     width: 20%;
-    margin: 0 auto;
-    padding-top: 6%;
+    margin: 0;
+    padding-top: 8%;
 
     color: #1E2E40;
     vertical-align: top;
@@ -383,7 +371,7 @@ footer {
 small {
     display: inline-block;
     position: relative;
-    left: 35%;
+    left: 40%;
     bottom: 3%;
 
     font-size: 1.2em;
