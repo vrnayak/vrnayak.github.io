@@ -6,6 +6,9 @@ function indexStartup() {
     let demoColors = { "row": "rowDemoColor", "col": "colDemoColor", "box": "boxDemoColor" };
     createGrid("demoGrid");
     colorDemoGrid(demoColors);
+
+    // Adjust properties of  grid
+    $(".grid").css("padding-left", "3%").css("padding-top", "1%").css("width", "45%");
 }
 
 function sudokuStartup() {
@@ -18,6 +21,9 @@ function sudokuStartup() {
     setEventListeners();
     createButtons();
     loadTimer();
+
+    // Adjust properties of  grid
+    $(".grid").css("padding-left", "20%").css("padding-top", "3%").css("width", "60%");
 }
 
 // **** INDEX.HTML ****
@@ -52,10 +58,10 @@ function createGrid(gridID) {
 
 function colorDemoGrid(colors) {
 
-    $("tr").on("mouseover", function() { $(this).addClass(colors["row"]); })
+    $(".grid tr").on("mouseover", function() { $(this).addClass(colors["row"]); })
             .on("mouseout", function() { $(this).removeClass(colors["row"]); });
 
-    $("td").on("mouseover", function () {
+    $(".grid td").on("mouseover", function () {
 
         // Set colors for column cells
         let cellNum = $(this).attr("id").slice(4, 6);
