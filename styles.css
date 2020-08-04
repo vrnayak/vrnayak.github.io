@@ -61,10 +61,15 @@ body {
 header, footer {
     display: block;
     vertical-align: middle;
-    width: 100%;
-    padding: 1% 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 1vw 0;
     color: #ffffff;
     background-color: #1E2E40;
+}
+
+footer {
+    height: auto;
 }
 
 a {
@@ -75,12 +80,12 @@ a {
 .logo {
     display: inline-block;
 
-    width: 5%;
-    height: 40px;
-    margin-left: 4%;
+    width: 5vw;
+    height: 5vh;
+    margin-left: 4vw;
 
     color: #bababa;
-    font-size: 2em;
+    font-size: 2.0vw;
     text-align: center;
     background-color: rgba(30, 46, 64, 0.5);
 }
@@ -93,19 +98,19 @@ nav {
     display: inline-block;
     float: right;
 
-    width: 85%;
-    height: 40px;
-    padding: 1.5% 5% 0 0;
+    width: 85vw;
+    height: 5vh;
+    padding: 2.5vh 5vw 0 0;
 
     color: #bababa;
-    font-size: 1.5em;
+    font-size: 1.4vw;
     text-align: right;
 }
 
 nav a {
     display: inline-block;
-    margin: 0 1%;
-    padding-bottom: 0.25em;
+    margin: 0 0.9vw;
+    padding-bottom: 0.25vh;
     font-weight: bold;
 }
 
@@ -115,37 +120,38 @@ nav a:hover {
 
 #intro {
     text-align: center;
-    line-height: 1.5em;
+    line-height: 2.5vh;
 }
 
 #intro h1 {
-    margin: 5% 0;
-    font-size: 6em;
+    margin: 5vw 0;
+    font-size: 6vw;
 }
 
 #intro p {
     display: inline-block;
 
-    width: 60%;
-    margin: 3% auto;
+    width: 60vw;
+    margin: 3vh auto;
 
     color: #bababa;
-    font-size: 2.5em;
-    line-height: 1.5em;
+    font-size: 2.5vw;
+    line-height: 1.8em;
 }
 
 #intro table {
     display: inline-block;
-    margin: 3% 5%;
+    margin: 3vh 5vw;
 }
 
 #intro td {
-    width: 1.5em;
+    width: 1.5vw;
+    height: 3.5vh;
     border: 0.05em #8d8d8d solid;
 
     color: #8d8d8d;
     align-content: center;
-    font-size: 2em;
+    font-size: 1.8vw;
     padding: 0.5em 0.5em;
     vertical-align: middle;
 }
@@ -167,7 +173,7 @@ nav a:hover {
     border-radius: 15px;
 
     color: white;
-    font-size: 2em;
+    font-size: 1.8vw;
 }
 
 .btn:hover {
@@ -177,17 +183,17 @@ nav a:hover {
 
 #howToPlay {
     display: block;
-    width: 93%;
-    height: 100%;
-    margin: 1% 0 4% 7%;
+    width: 93vw;
+    height: 95vh;
+    margin: 1vh 0 4vh 7vw;
 }
 
 h2 {
     display: inline-block;
     padding-bottom: 0.2em;
-    margin-bottom: 3%;
+    margin: 5vh 0 6vh 0;
     color: #1E2E40;
-    font-size: 3.5em;
+    font-size: 3.3vw;
     border-bottom: #1E2E40 0.1em dotted;
 }
 
@@ -200,9 +206,9 @@ h2 {
     border-left: 0.2em rgba(145, 22, 22, 0.77) solid;
 
     color: #4f4f4f;
-    font-size: 1.35em;
+    font-size: 1.3vw;
     text-align: justify;
-    line-height: 1.5em;
+    line-height: 1.95vw;
 }
 
 #objective {
@@ -216,7 +222,7 @@ h2 {
 .steps h3 {
     color: #1E2E40;
     padding-bottom: 3%;
-    font-size: 1.55em;
+    font-size: 1.55vw;
     font-weight: bold;
 }
 
@@ -234,17 +240,17 @@ h2 {
     display: inline-block;
     border: 0.3em #8d8d8d solid;
     border-collapse: collapse;
-    font-size: 1em;
+    font-size: 0.9vw;
 }
 
 .grid td {
-    width: 2.8em;
-    height: 2.8em;
+    width: 4.0vw;
+    height: 4.15vw;
     border: 0.05em #8d8d8d solid;
 
     color: #7a7a7a;
     align-content: center;
-    font-size: 1.5em;
+    font-size: 1.5vw;
     padding: 0.6em;
     text-align: center;
     vertical-align: middle;
@@ -261,7 +267,7 @@ h2 {
 }
 
 .colDemoColor {
-    background-color: rgba(0, 47, 188, 0.43);
+    background-color: rgba(79, 122, 248, 0.42);
 }
 
 .rowGridColor {
@@ -375,4 +381,15 @@ small {
     bottom: 3%;
 
     font-size: 1.2em;
+}
+
+#gridSection {
+    height: 80vh;
+}
+
+.learn {
+    display: block;
+    width: 93vw;
+    height: 95vh;
+    margin: 1vh 0 4vh 7vw;
 }
