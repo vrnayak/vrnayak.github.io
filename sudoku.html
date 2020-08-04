@@ -2,13 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
         <script type="text/javascript" src="sudoku.js"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <link rel="stylesheet" href="styles.css">
-        <title>Sudoku</title>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <title>Sudoku | Play</title>
     </head>
     <body onload="sudokuStartup()">
+
         <header>
             <div class="logo">
                 <a class="logoLink" href="index.html">
@@ -28,17 +33,27 @@
         <div id="gridSection">
             <section class="grid">
                 <h4 id="difficulty">Easy</h4><h4 id="timer">00:00</h4>
+                <table id="grid"></table>
+            </section>
+
+            <section class="controls">
                 <form>
-                    <table id="grid"></table>
+                    <table id="keypad"></table>
+                    <table id="otherKeys"></table>
                 </form>
             </section>
         </div>
         <br>
-        <section class="controls">
-            <form>
-                <table id="keypad"></table>
-                <table id="otherKeys"></table>
-            </form>
-        </section>
+
+        <footer>
+            <div class="logo">
+                <a href="index.html">
+                    <p>S&nbsp;U&nbsp;D</p>
+                    <p>O&nbsp;K&nbsp;U</p>
+                    <p>1&nbsp;&nbsp;2&nbsp;3</p>
+                </a>
+            </div>
+            <small>Sudoku123 &copy;</small>
+        </footer>
     </body>
 </html>
