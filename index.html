@@ -3,9 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script type="text/javascript" src="sudoku.js"></script>
+        <script>
+            AOS.init();
+        </script>
         <link rel="stylesheet" href="styles.css">
-        <title>Sudoku</title>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <title>Sudoku | Home</title>
     </head>
     <body onload="indexStartup()">
         <header>
@@ -46,16 +51,15 @@
                 <a class="btn" href="sudoku.html">Get Started</a>
             </section>
         </header>
-        <br>
-        <br>
+
         <section id="howToPlay">
-            <h2>How To Play</h2>
+            <h2 data-aos="fade-right">How To Play</h2>
             <br>
-            <section class="grid">
+            <section class="grid" data-aos="fade-right" data-aos-delay="150" data-aos-duration="800">
                 <table id="demoGrid"></table>
             </section>
-
-            <section class="steps">
+            <br>
+            <section class="steps" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
                 <h3>O<span style="font-size: 0.75em">VERVIEW</span></h3>
                 <p>Sudoku puzzles are 9x9 grids that consist of only the numbers 1-9. We call each 1x1 box in this
                     grid a cell. Every grid has exactly 81 cells. We tend to organize these cells into nine rows,
@@ -64,7 +68,7 @@
                 </p>
             </section>
             <br>
-            <section class="steps" id="objective">
+            <section class="steps" id="objective" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
                 <h3>O<span style="font-size: 0.75em">BJECTIVE</span></h3>
                 <p>The objective is to fill in the grid such that every row, column, and box contains
                     the numbers 1 - 9 exactly once. For advanced solvers, time is another factor &mdash;
@@ -73,7 +77,7 @@
                 </p>
             </section>
             <br>
-            <section class="steps" id="gettingStarted">
+            <section class="steps" id="gettingStarted" data-aos="fade-up" data-aos-delay="350" data-aos-duration="800">
                 <h3>G<span style="font-size: 0.75em">ETTING</span> S<span style="font-size: 0.75em">TARTED</span></h3>
                 <p>Sudokus are usually given with a number of cells filled in. These "clues" help solvers deduce the
                     remaining numbers that go in the cells. Sudokus are logic puzzles, which means that every Sudoku
@@ -90,8 +94,7 @@
                     <p>1&nbsp;&nbsp;2&nbsp;3</p>
                 </a>
             </div>
-            <small> &copy; Sudoku123</small>
-
+            <small>Sudoku123 &copy;</small>
         </footer>
     </body>
 </html>
