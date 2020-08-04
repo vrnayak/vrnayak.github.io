@@ -3,6 +3,7 @@
 
 function indexStartup() {
 
+    AOS.init()
     let demoColors = { "row": "rowDemoColor", "col": "colDemoColor", "box": "boxDemoColor" };
     createGrid("demoGrid");
     colorDemoGrid(demoColors);
@@ -14,6 +15,7 @@ function indexStartup() {
 function sudokuStartup() {
 
     window.startTime = new Date();
+    $("header").css("height", "16vh");
     let gridColors = { "row": "rowGridColor", "col": "colGridColor"};
 
     createGrid("grid");
@@ -25,6 +27,11 @@ function sudokuStartup() {
     // Adjust properties of  grid
     $(".grid").css("padding-left", "20%").css("padding-top", "3%").css("width", "60%");
 }
+
+function learnStartup() {
+    $("header").css("height", "16vh");
+}
+
 
 // **** INDEX.HTML ****
 
