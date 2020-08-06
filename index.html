@@ -2,23 +2,26 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <!-- jQuery & FontAwesome Source Code -->
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script type="text/javascript" src="sudoku.js"></script>
-        <script>
-            AOS.init();
-        </script>
-        <link rel="stylesheet" href="styles.css">
+
+        <!-- Animation on Scrolling (AOS) Source Code -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <title>Sudoku | Home</title>
+
+        <!-- Custom stylesheets & scripts -->
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="sudoku.js"></script>
     </head>
     <body onload="indexStartup()">
-        <header>
+
+        <header class="scroller">
             <div class="logo">
                 <a href="index.html">
-                <p>S&nbsp;U&nbsp;D</p>
-                <p>O&nbsp;K&nbsp;U</p>
-                <p>1&nbsp;&nbsp;2&nbsp;3</p>
+                    <p>S&nbsp;U&nbsp;D</p>
+                    <p>O&nbsp;K&nbsp;U</p>
+                    <p>1&nbsp;&nbsp;2&nbsp;3</p>
                 </a>
             </div>
             <nav>
@@ -52,49 +55,51 @@
             </section>
         </header>
 
-        <section id="howToPlay">
-            <h2 data-aos="fade-right">How To Play</h2>
-            <br>
-            <section class="grid" data-aos="fade-right" data-aos-delay="150" data-aos-duration="800">
-                <table id="demoGrid"></table>
+        <div id="container">
+            <section id="howToPlay" class="scroller">
+                <h2 data-aos="fade-right">How To Play</h2>
+                <br>
+                <section class="grid" data-aos="fade-right" data-aos-delay="150" data-aos-duration="800">
+                    <table id="demoGrid"></table>
+                </section>
+                <br>
+                <section class="steps" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+                    <h3>O<span style="font-size: 0.75em">VERVIEW</span></h3>
+                    <p>Sudoku puzzles are 9x9 grids that consist of only the numbers 1-9. We call each 1x1 box in this
+                        grid a cell. Every grid has exactly 81 cells. We tend to organize these cells into nine rows,
+                        nine columns, and nine 3x3 boxes as shown to the left (hover over the grid to see the
+                        rows/columns/boxes).
+                    </p>
+                </section>
+                <br>
+                <section class="steps" id="objective" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
+                    <h3>O<span style="font-size: 0.75em">BJECTIVE</span></h3>
+                    <p>The objective is to fill in the grid such that every row, column, and box contains
+                        the numbers 1 - 9 exactly once. For advanced solvers, time is another factor &mdash;
+                        solving Sudokus as fast as possible has not only interested puzzle-lovers but also become
+                        a worldwide competition!
+                    </p>
+                </section>
+                <br>
+                <section class="steps" id="gettingStarted" data-aos="fade-up" data-aos-delay="350" data-aos-duration="800">
+                    <h3>G<span style="font-size: 0.75em">ETTING</span> S<span style="font-size: 0.75em">TARTED</span></h3>
+                    <p>Sudokus are usually given with a number of cells filled in. These "clues" help solvers deduce the
+                        remaining numbers that go in the cells. Sudokus are logic puzzles, which means that every Sudoku
+                        can be solved without a single guess &mdash; all that is needed is time & wit.
+                    </p>
+                </section>
             </section>
-            <br>
-            <section class="steps" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
-                <h3>O<span style="font-size: 0.75em">VERVIEW</span></h3>
-                <p>Sudoku puzzles are 9x9 grids that consist of only the numbers 1-9. We call each 1x1 box in this
-                    grid a cell. Every grid has exactly 81 cells. We tend to organize these cells into nine rows,
-                    nine columns, and nine 3x3 boxes as shown to the left (hover over the grid to see the
-                    rows/columns/boxes).
-                </p>
-            </section>
-            <br>
-            <section class="steps" id="objective" data-aos="fade-up" data-aos-delay="250" data-aos-duration="800">
-                <h3>O<span style="font-size: 0.75em">BJECTIVE</span></h3>
-                <p>The objective is to fill in the grid such that every row, column, and box contains
-                    the numbers 1 - 9 exactly once. For advanced solvers, time is another factor &mdash;
-                    solving Sudokus as fast as possible has not only interested puzzle-lovers but also become
-                    a worldwide competition!
-                </p>
-            </section>
-            <br>
-            <section class="steps" id="gettingStarted" data-aos="fade-up" data-aos-delay="350" data-aos-duration="800">
-                <h3>G<span style="font-size: 0.75em">ETTING</span> S<span style="font-size: 0.75em">TARTED</span></h3>
-                <p>Sudokus are usually given with a number of cells filled in. These "clues" help solvers deduce the
-                    remaining numbers that go in the cells. Sudokus are logic puzzles, which means that every Sudoku
-                    can be solved without a single guess &mdash; all that is needed is time & wit.
-                </p>
-            </section>
-        </section>
 
-        <footer>
-            <div class="logo">
-                <a href="index.html">
-                    <p>S&nbsp;U&nbsp;D</p>
-                    <p>O&nbsp;K&nbsp;U</p>
-                    <p>1&nbsp;&nbsp;2&nbsp;3</p>
-                </a>
-            </div>
-            <small>Sudoku123 &copy;</small>
-        </footer>
+            <footer class="scroller">
+                <div class="logo">
+                    <a href="index.html">
+                        <p>S&nbsp;U&nbsp;D</p>
+                        <p>O&nbsp;K&nbsp;U</p>
+                        <p>1&nbsp;&nbsp;2&nbsp;3</p>
+                    </a>
+                </div>
+                <small>Sudoku123 &copy;</small>
+            </footer>
+        </div>
     </body>
 </html>
