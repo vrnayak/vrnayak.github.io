@@ -2,16 +2,21 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-        <script type="text/javascript" src="sudoku.js"></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <title>Sudoku | Play</title>
+
+        <!-- jQuery & FontAwesome Source Code -->
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Animation on Scrolling (AOS) Source Code -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <!-- Custom stylesheets & scripts -->
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="sudoku.js"></script>
     </head>
+
     <body onload="sudokuStartup()">
 
         <header>
@@ -31,7 +36,7 @@
 
         </header>
         <div id="gridSection">
-            <section class="grid">
+            <section class="grid" >
                 <h4 id="difficulty">Easy</h4><h4 id="timer">00:00</h4>
                 <table id="grid"></table>
             </section>
