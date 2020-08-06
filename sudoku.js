@@ -3,7 +3,7 @@
 
 function indexStartup() {
 
-    AOS.init()
+    AOS.init(); // Needed for animation on scroll to work
     let demoColors = { "row": "rowDemoColor", "col": "colDemoColor", "box": "boxDemoColor" };
     createGrid("demoGrid");
     colorDemoGrid(demoColors);
@@ -14,6 +14,7 @@ function indexStartup() {
 
 function sudokuStartup() {
 
+    AOS.init(); // Needed for animation on scroll to work
     window.startTime = new Date();
     $("header").css("height", "16vh");
     let gridColors = { "row": "rowGridColor", "col": "colGridColor"};
@@ -29,7 +30,9 @@ function sudokuStartup() {
 }
 
 function learnStartup() {
+    AOS.init();
     $("header").css("height", "16vh");
+    createGrid("demoGrid");
 }
 
 
