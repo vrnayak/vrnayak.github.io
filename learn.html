@@ -2,15 +2,21 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-        <script type="text/javascript" src="sudoku.js"></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <title>Sudoku | Learn</title>
+
+        <!-- jQuery & FontAwesome Source Code -->
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Animation on Scrolling (AOS) Source Code -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <!-- Custom stylesheets & scripts -->
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="sudoku.js"></script>
     </head>
+
     <body onload="learnStartup()">
         <header>
             <div class="logo">
@@ -26,12 +32,50 @@
                 <a href="learn.html">Learn</a>
             </nav>
         </header>
-        <section class="learn">
 
+        <div class="learn">
             <h2>Tips & Tricks</h2>
 
+            <section class="tips" id="strats" data-aos="fade-right" data-aos-duration="1000">
+                <span style="display: inline-block; padding: 0.5% 3.5%; font-size: 1.5vw; font-weight: bolder; border: 0.1em solid white; border-radius: 50%">1</span>
+                <h3>&nbsp; Strategies</h3>
+                <p>
+                    <br>Over the ages, sudoku solvers have amassed a wide variety of tips & strategies to solve
+                    sudoku puzzles more quickly. This page presents some of the more common strategies used
+                    today.
+                </p>
+            </section>
 
-        </section>
+            <section class="tips" id="difficultyLevel" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="150">
+                <span style="display: inline-block; padding: 0.5% 3%; font-size: 1.5vw; font-weight: bolder; border: 0.1em solid white; border-radius: 50%;">2</span>
+                <h3>&nbsp; Difficulty Levels</h3>
+                <p>
+                    <br>The tips presented are roughly ordered in terms of complexity, with less complex strategies
+                    appearing first. The advanced strategies should be reserved only for the most difficult puzzles.
+                </p>
+            </section>
+
+            <section class="tips" id="practice" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <span style="display: inline-block; padding: 0.5% 3%; font-size: 1.5vw; font-weight: bolder; border: 0.1em solid white; border-radius: 50%">3</span>
+                <h3>&nbsp; Practice!!</h3>
+                <p>
+                    <br>The only way to get better is to practice! After learning each strategy, try your hand at
+                    a sudoku puzzle and look for ways to use your newfound knowledge. Happy solving!!
+                </p>
+            </section>
+            <a href="#fallInLine">
+                <i id="seeBelow" class="fas fa-angle-double-down" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"></i>
+            </a>
+
+        </div>
+
+        <div id="fallInLine">
+            <h2>Fall In Line</h2>
+            <br>
+            <section class="grid">
+                <table id="demoGrid"></table>
+            </section>
+        </div>
         <footer>
             <div class="logo">
                 <a href="index.html">
