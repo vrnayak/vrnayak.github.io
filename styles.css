@@ -390,6 +390,83 @@ small {
 .learn {
     display: block;
     width: 93vw;
-    height: 95vh;
+    height: 78vh;
     margin: 1vh 0 4vh 7vw;
+
+}
+
+.scroller {
+    scroll-snap-align: start;
+}
+
+#container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+.tips {
+    display: inline-block;
+    position: absolute;
+    top: 45vh;
+
+    width: 25vw;
+    padding: 1.5% 1%;
+    border-radius: 15px;
+
+    color: white;
+    font-size: 1.3vw;
+    text-align: justify;
+    line-height: 1.95vw;
+}
+
+.tips h3 {
+    display: inline-block;
+    font-size: 1.5vw;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+#strats {
+
+    left: 8vw;
+    border-top: 0.3em rgba(145, 22, 22, 0.77) solid;
+    background-color: rgba(145, 22, 22, 0.67);
+}
+
+#difficultyLevel {
+
+    left: 38vw;
+    border-top: 0.3em rgba(19, 110, 110, 0.84) solid;
+    background-color: rgba(19, 110, 110, 0.75);
+}
+
+#practice {
+
+    left: 68vw;
+    border-top: 0.3em rgba(12, 52, 138, 0.85) solid;
+    background-color: rgba(12, 52, 138, 0.75);
+}
+
+#seeBelow {
+    position: absolute;
+    top: 86vh;
+    left: 50vw;
+
+    color: #b5b5b5;
+    font-size: 3vw;
+
+}
+
+#fallInLine {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    padding: 1vh 0 4vh 7vw;
+    background-color: #f5f5f5;
+}
+
+#fallInLine .grid {
+
+    padding-top: 0;
+    padding-left: 3%;
 }
