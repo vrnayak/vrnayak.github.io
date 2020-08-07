@@ -5,7 +5,7 @@ function indexStartup() {
 
     AOS.init(); // Needed for animation on scroll to work
     let demoColors = { "row": "rowDemoColor", "col": "colDemoColor", "box": "boxDemoColor" };
-    createGrid("demoGrid");
+    createGrid("demoGrid", "");
     colorDemoGrid(demoColors);
 
     // Adjust properties of  grid
@@ -19,7 +19,7 @@ function sudokuStartup() {
     $("header").css("height", "16vh");
     let gridColors = { "row": "rowGridColor", "col": "colGridColor"};
 
-    createGrid("grid");
+    createGrid("grid", "");
     colorGrid(gridColors);
     setEventListeners();
     createButtons();
@@ -32,13 +32,13 @@ function sudokuStartup() {
 function learnStartup() {
     AOS.init();
     $("header").css("height", "16vh");
-    createGrid("demoGrid");
+    createGrid("eliminationGrid", "elim");
+    //createGrid("elimination2Grid", "2elim");
 }
-
 
 // **** INDEX.HTML ****
 
-function createGrid(gridID) {
+function createGrid(gridID, prefix) {
 
     let demoGrid = [1, 0, 0, 9, 8, 5, 6, 2, 4, 4, 0, 0, 0, 0, 2, 3, 8, 7, 0, 0, 8, 0, 0, 0, 1, 0, 0,
         0, 7, 0, 0, 5, 6, 4, 0, 2, 6, 4, 2, 0, 1, 0, 0, 0, 0, 5, 0, 3, 0, 2, 7, 8, 1, 0,
@@ -61,7 +61,7 @@ function createGrid(gridID) {
             if (demoGrid[cellNum] === 0)
                 $(newCell).addClass("userFill");
 
-            newCell.id = getID(cellNum).slice(1);   // Removes # at front
+            newCell.id = prefix + getID(cellNum).slice(1);   // Removes # at front
         }
     }
 }
@@ -227,6 +227,46 @@ function createButtons() {
         $(".selectedCell").text("");
         $(".errorCell").removeClass("errorCell");
     });
+}
+
+// **** LEARN.HTML ****
+
+function T1ElimAnim() {
+
+    $("#eliminationGrid td").css("backgroundColor", "inherit");
+    $(".userFill").text("");
+    // Cells eliminated
+    setTimeout(function() { $("#elimcell24").css("backgroundColor", "rgba(0,47,188,0.24)"); }, 500);
+    $("#elimcell23").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='1000'></i>");
+    $("#elimcell22").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='1500'></i>");
+    $("#elimcell21").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='2000'></i>");
+
+    setTimeout(function() { $("#elimcell40").css("backgroundColor", "rgba(0,47,188,0.24)"); }, 2500);
+    $("#elimcell13").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='3000'></i>");
+
+    setTimeout(function() { $("#elimcell12").text("1").css("color", "#1E2E40").css("font-weight", "bolder")
+        .css("backgroundColor", "rgba(101, 171, 171, 0.39)"); }, 3500);
+
+}
+
+function T1SolAnim() {
+
+    $("#eliminationGrid td").css("backgroundColor", "inherit");
+    $(".userFill").text("");
+    // Cells eliminated
+    setTimeout(function() { $("#elimcell16").css("backgroundColor", "rgba(0,47,188,0.24)"); }, 500);
+    $("#elimcell26").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='1000'></i>");
+
+    setTimeout(function() { $("#elimcell51").css("backgroundColor", "rgba(0,47,188,0.24)"); }, 1500);
+    $("#elimcell44").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='2000'></i>");
+    $("#elimcell53").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='2500'></i>");
+
+    setTimeout(function() { $("#elimcell59").css("backgroundColor", "rgba(0,47,188,0.24)"); }, 3000);
+    $("#elimcell62").html("<i class='fas fa-times' data-aos='zoom-in' data-aos-delay='3500'></i>");
+
+    setTimeout(function() { $("#elimcell80").text("8").css("color", "#1E2E40").css("font-weight", "bolder")
+        .css("backgroundColor", "rgba(101, 171, 171, 0.39)"); }, 4500);
+
 }
 
 // Helper Functions
