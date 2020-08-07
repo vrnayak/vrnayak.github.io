@@ -63,19 +63,53 @@
                     a sudoku puzzle and look for ways to use your newfound knowledge. Happy solving!!
                 </p>
             </section>
-            <a href="#fallInLine">
+            <a href="#elimination">
                 <i id="seeBelow" class="fas fa-angle-double-down" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"></i>
             </a>
 
         </div>
 
-        <div id="fallInLine">
-            <h2>Fall In Line</h2>
+        <div id="elimination" class="technique">
+            <h2>Type I Elimination</h2>
             <br>
             <section class="grid">
-                <table id="demoGrid"></table>
+                <table id="eliminationGrid"></table>
             </section>
+            <section class="info level easy">
+                <h3>Level: Beginner</h3>
+            </section>
+            <br>
+            <section class="info description">
+                <p>
+                    <span style="font-weight: bolder; font-size: 1.5vw;">Description: </span>
+                    The numbers 1 - 9 must appear exactly once within each row, column, and box. Thus, if you can rule out
+                    <span style="text-decoration: underline">all but one</span> location within a row/column/box that a
+                    specific number can be placed in, by process of elimination, the number must be placed in the single
+                    remaining location. This simple but powerful strategy is the most frequently used because it is the
+                    fastest method to fill in sudoku cells.
+                </p>
+            </section>
+            <br>
+            <section class="info example">
+                <p>
+                    <span style="font-weight: bolder; font-size: 1.5vw;">Example: </span>
+                    Let's apply Type I Elimination to the grid on the left. The middle box in the top row is missing a 1.
+                    Using the 1's in the box to the right and the box below, we can eliminate 4 of the 5 empty cells
+                    as places to put a 1. Thus, the 1 <span style="text-decoration: underline">must</span> go in the remaining cell.
+                </p>
+            </section>
+            <section class="info practice">
+                <p>
+                    <span style="font-weight: bolder; font-size: 1.5vw;">Practice: </span>
+                    Try applying Type I Elimination to place an 8 in the rightmost column.
+                </p>
+            </section>
+
+            <button class="animation" onclick="T1ElimAnim()">Show Example</button>
+            <button class="animation solution" onclick="T1SolAnim()">Show Solution</button>
         </div>
+
+
         <footer>
             <div class="logo">
                 <a href="index.html">
