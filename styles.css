@@ -454,19 +454,87 @@ small {
 
     color: #b5b5b5;
     font-size: 3vw;
-
 }
 
-#fallInLine {
+.technique {
     display: block;
     width: 100vw;
     height: 100vh;
     padding: 1vh 0 4vh 7vw;
+
+}
+
+#elimination {
     background-color: #f5f5f5;
 }
 
-#fallInLine .grid {
+.technique .grid {
 
     padding-top: 0;
     padding-left: 3%;
+}
+
+.info {
+    display: inline-block;
+
+    width: 45%;
+    padding: 0 0.75%;
+    margin: 1% 1% 1% 1.5vw;
+
+    color: #4f4f4f;
+    font-size: 1.3vw;
+    text-align: justify;
+    line-height: 2.3vw;
+}
+
+.level {
+    font-size: 1.9vw;
+    font-weight: bolder;
+}
+
+.description {
+    border-left: 0.3vw rgba(188, 158, 14, 0.71) solid;
+}
+
+.example {
+    border-left: 0.3vw rgba(145, 22, 22, 0.77) solid;
+}
+
+.practice {
+    border-left: 0.3vw rgba(21, 45, 122, 0.71) solid;
+}
+
+.description h3 {
+    font-size: 1.9vw;
+    font-weight: bolder;
+}
+
+.easy {
+    border-left: 0.3vw rgba(0, 133, 123, 0.79) solid;
+}
+
+.medium {
+    border-left: 0.3vw rgba(21, 45, 122, 0.71) solid;
+}
+
+.hard {
+    border-left: 0.3vw rgba(145, 22, 22, 0.77) solid;
+}
+
+.animation {
+
+    width: 11vw;
+    height: 6vh;
+    margin-left: 3vh;
+    margin-top: 1vw;
+    display: inline-block;
+
+    color: white;
+    cursor: pointer;
+    font-size: 1.3vw;
+    background-color: rgba(145, 22, 22, 0.77);
+}
+
+.solution {
+    background-color: rgba(21, 45, 122, 0.71);
 }
